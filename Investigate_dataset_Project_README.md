@@ -50,7 +50,7 @@ the following command:
 following command:
 **pip install seaborn**
 
-- Jupyter Notebook Extensions: Install Jupyter Notebook Extensions to enhance your Jupyter Notebook experience. You can install it using
+- **Jupyter Notebook Extensions**: Install Jupyter Notebook Extensions to enhance your Jupyter Notebook experience. You can install it using
 the following command:
 **pip install jupyter_contrib_nbextensions**
   
@@ -62,7 +62,7 @@ In addition to Python and the required libraries, you will also need the dataset
 - Clone the Repository: Clone the project repository from GitHub using the following command:
 git clone https://github.com/Imanshr/my_projects.git
 
-Open Jupyter Notebook: Navigate to the project directory and open Jupyter Notebook using the following command:
+ - Open Jupyter Notebook: Navigate to the project directory and open Jupyter Notebook using the following command:
 jupyter notebook
 
 Please note that the above steps assume you have Git and Python already installed on your machine. If you don't have them installed, 
@@ -80,10 +80,10 @@ not patients show up for their appointment was explored where the following task
 
  - Conducted data wrangling tasks to ensure data quality and consistency.
  - Performed data exploration and analysis using Python programming, utilizing libraries such as Pandas and NumPy to extract insights
- -  and patterns from dataset.
+ and patterns from dataset.
  - Generated visualizations and summaries to effectively communicate the findings of the analysis, including factors influencing patient
- -  attendance for appointment.
- -  
+ attendance for appointment.
+   
 ### Acknowledgments
 <a id="acknowledgments"></a>
 As mentioned earlier this project was part of Data Fundamentals Nanodegree from [Udacity](https://www.udacity.com/course/data-fundamentals-nanodegree--nd110).
