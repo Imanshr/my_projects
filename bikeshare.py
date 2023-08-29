@@ -58,21 +58,21 @@ def load_data(city, month, day):
     df = pd.read_csv(CITY_DATA[city])
     df['Start Time'] = pd.to_datetime(df['Start Time'])
     df['month'] = df['Start Time'].dt.month
-    df['day'] = df['Start Time'].dt.weekday_name
+    df['day'] = df['Start Time'].dt.day_name
     df['hour'] = df['Start Time'].dt.hour
                                   
     months = ['january', 'february', 'march', 'april', 'may', 'june', 'july']
     if month != 'all':
-                                  month = months.index(month) + 1
-                                  df =df[df['month'] == month]
+        month = months.index(month) + 1
+        df =df[df['month'] == month]
     elif month == 'all':
-                                  df = df
+        df = df
      
                                   
     if day != 'all':
-                                  df = df[df['day'] == day.title()]
+        df = df[df['day'] == day.title()]
     elif day == 'all':
-                                  df = df
+        df = df
   
     return df
 counter = 0
@@ -94,7 +94,13 @@ def time_stats(df):
     print(' The most common month is: ', df['month'].mode()[0])
     print(' The most common day is: ', df['day'].mode()[0])
     print(' The most common hour is: ', df['hour'].mode()[0])
-            
+    #Plotting a histogram of trip durations
+    plt.hist(df['Trip Duration'], bins=20) 
+    plt.xlabel('Trip Duration')
+    plt.ylabel('Frequency')
+    plt.title('Histogram of Trip Durations')
+    plt.show()
+
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
     
