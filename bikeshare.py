@@ -100,7 +100,6 @@ def time_stats(df):
     plt.ylabel('Frequency')
     plt.title('Histogram of Trip Durations')
     plt.show()
-
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
     
@@ -119,7 +118,14 @@ def station_stats(df):
     print(' The most commonly used End station is: ',df['End Station'].mode()[0])
     most_frequent_station = frequent_combination(df)
     print(' The most frequent combination start station and end station :\n\n', most_frequent_station)
-
+    #Plotting a bar chart of the most popular start stations
+    start_station_counts = data['start_station'].value_counts().head(10)  # Get the top 10 most popular start stations
+    plt.bar(start_station_counts.index, start_station_counts.values)
+    plt.xlabel('Start Station')
+    plt.ylabel('Count')
+    plt.title('Top 10 Most Popular Start Stations')
+    plt.xticks(rotation=90)  # Rotate x-axis labels if needed
+    plt.show()
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
