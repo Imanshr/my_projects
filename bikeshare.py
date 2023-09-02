@@ -86,6 +86,8 @@ def view_data (df):
         else:
             break
     
+
+
 def time_stats(df):
     """Displays statistics on the most frequent times of travel."""
 
@@ -94,12 +96,29 @@ def time_stats(df):
     print(' The most common month is: ', df['month'].mode()[0])
     print(' The most common day is: ', df['day'].mode()[0])
     print(' The most common hour is: ', df['hour'].mode()[0])
+    
+    print("\nThis took %s seconds." % (time.time() - start_time))
+    print('-'*40)
+
+#variable to store the total distance and a counter variable to keep track of the number of trips
+total_distance = 0
+trip_count = 0
+
+def distance_stats(df):
+    """Displays statistics on distance of travel."""
+    global total_distance, trip_count
+    total_distance += float(row['Trip Duration'])
+    trip_count += 1
+    average_distance = total_distance / trip_count
+    print("Average Distance Traveled: {:.2f} miles".format(average_distance))
+
     #Plotting a histogram of trip durations
     plt.hist(df['Trip Duration'], bins=20) 
     plt.xlabel('Trip Duration')
     plt.ylabel('Frequency')
     plt.title('Histogram of Trip Durations')
     plt.show()
+
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
     
@@ -163,6 +182,7 @@ def main():
         df = load_data(city, month, day)
         view_data(df)
         time_stats(df)
+        distance_stats(df)
         frequent_combination(df)
         station_stats(df)
         trip_duration_stats(df)
